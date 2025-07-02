@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard!{% endblock %}
+
+{% block body %}
+    <h1>Hello {{ app.user.firstname }}! ✅</h1>
+    <a href="{{ path('app_logout') }}"> Logout </a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fill the Form!{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h1>Add user! ✅</h1>
+    {{form_start(form)}}
+    {{form_row(form.name)}}
+    {{form_row(form.email)}}
+    {{form_row(form.age)}}
+    <button class("btn btn-primary)">Save</button> 
+{{form_end(form)}}
+</div>
+{% endblock %}
