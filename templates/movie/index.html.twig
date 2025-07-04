@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie section{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center my-4">Hello Popular movies ! ✅</h1>
+<div class="row" style="max-width: 98%; margin: 0 auto;">
+    <div class="row">
+        {% for movie in movies %}
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path}}" class="card-img-top" alt="{{movie.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        <p class="card-text">{{movie.overview|slice(0, 100) ~ '...'}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-4">
+            {% if page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{path('app_movie') }}?page={{ page - 1 }}">Previous</a>
+                </li>
+            {% endif %}
+            <li class="page-item disabled">
+                <span class="page-link">Page {{page}} of {{total_pages}}</span>
+            </li>
+
+            {%if page < total_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="{{path('app_movie') }}?page={{ page + 1 }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>                
+</div>
+{% endblock %}

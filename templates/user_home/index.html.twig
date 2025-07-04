@@ -4,5 +4,8 @@
 
 {% block body %}
     <h1>Hello {{ app.user.firstname }}! ✅</h1>
+    <a href="{{path('app_profile') }}">Profile</a>
+    <a href="{{path('app_movie')}}">Movies</a>
     <a href="{{ path('app_logout') }}"> Logout </a>
+    
 {% endblock %}
